@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### Property Files ###
-!.property-files/
+!**/property-files/
