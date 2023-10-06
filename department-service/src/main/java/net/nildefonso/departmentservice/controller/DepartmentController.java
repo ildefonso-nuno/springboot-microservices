@@ -50,13 +50,13 @@ public class DepartmentController {
             responseCode = "200",
             description = "HTTP Status 200 SUCCESS"
     )
-    @GetMapping("{department-id}")
+    @GetMapping("by-id/{department-id}")
     public ResponseEntity<DepartmentDto> getDepartmentById(@PathVariable("department-id") Long id){
         return ResponseEntity.ok(departmentService.getDepartmentById(id));
     }
 
     //get Department By Code RESTAPI
-    @GetMapping("{department-code}")
+    @GetMapping("by-code/{department-code}")
     @Operation(
             summary = "Get Department by Code REST API",
             description = "Get Department by code by Id REST API is used to get a single department by code from the database"
@@ -65,8 +65,8 @@ public class DepartmentController {
             responseCode = "200",
             description = "HTTP Status 200 SUCCESS"
     )
-    public ResponseEntity<DepartmentDto> getDepartmentByCode(@PathVariable("department-code") String Code){
-        return ResponseEntity.ok(departmentService.getDepartmentByCode(Code));
+    public ResponseEntity<DepartmentDto> getDepartmentByCode(@PathVariable("department-code") String code){
+        return ResponseEntity.ok(departmentService.getDepartmentByCode(code));
     }
 
     //get All Departments RESTAPI

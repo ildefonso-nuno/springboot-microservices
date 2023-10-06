@@ -11,7 +11,8 @@ public class EmployeeModelMapper {
                 employee.getId(),
                 employee.getFirstName(),
                 employee.getLastName(),
-                employee.getEmail()
+                employee.getEmail(),
+                employee.getDepartmentCode()
         );
     }
 
@@ -20,7 +21,8 @@ public class EmployeeModelMapper {
                 employeeDto.getId(),
                 employeeDto.getFirstName(),
                 employeeDto.getLastName(),
-                employeeDto.getEmail()
+                employeeDto.getEmail(),
+                employeeDto.getDepartmentCode()
         );
     }
 }

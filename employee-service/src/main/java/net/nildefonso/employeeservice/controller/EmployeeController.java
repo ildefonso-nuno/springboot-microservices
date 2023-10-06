@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import net.nildefonso.employeeservice.dto.APIResponseDto;
 import net.nildefonso.employeeservice.dto.EmployeeDto;
 import net.nildefonso.employeeservice.service.EmployeeService;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +54,48 @@ public class EmployeeController {
     @GetMapping("{employee-id}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("employee-id") Long id){
         return ResponseEntity.ok(employeeService.getEmployeeById(id));
+    }
+
+    //get Employee With Department By ID RESTAPI
+    @Operation(
+            summary = "Get Employee with department by Id REST API",
+            description = "Get Employee with department by Id REST API is used to get a single employee from the database"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status 200 SUCCESS"
+    )
+    @GetMapping("with-department/{employee-id}")
+    public ResponseEntity<APIResponseDto> getEmployeeWithDepartmentById(@PathVariable("employee-id") Long id){
+        return ResponseEntity.ok(employeeService.getEmployeeWithDepartmentById(id));
+    }
+
+    //get Employee With Department By ID using WebClient RESTAPI
+    @Operation(
+            summary = "Get Employee with department by Id using WebClient REST API",
+            description = "Get Employee with department by Id REST API is used to get a single employee from the database"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status 200 SUCCESS"
+    )
+    @GetMapping("webclient/{employee-id}")
+    public ResponseEntity<APIResponseDto> getEmployeeWebClientById(@PathVariable("employee-id") Long id){
+        return ResponseEntity.ok(employeeService.getEmployeeWebClientById(id));
+    }
+
+    //get Employee With Department By ID using APIClient RESTAPI
+    @Operation(
+            summary = "Get Employee with department by Id using ApiClient REST API",
+            description = "Get Employee with department by Id REST API is used to get a single employee from the database"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status 200 SUCCESS"
+    )
+    @GetMapping("apiclient/{employee-id}")
+    public ResponseEntity<APIResponseDto> getEmployeeApiClientById(@PathVariable("employee-id") Long id){
+        return ResponseEntity.ok(employeeService.getEmployeeApiClientById(id));
     }
 
     //get All Employees RESTAPI
